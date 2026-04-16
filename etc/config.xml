@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <customer>
+            <account_information>
+                <change_account_template>rameera_email_customer_account_information_change_template</change_account_template>
+            </account_information>
+            <password>
+                <revamped_website_email_template>rameera_email_customer_password_revamped_website_email_template</revamped_website_email_template>
+            </password>
+        </customer>
+    </default>
+</config>

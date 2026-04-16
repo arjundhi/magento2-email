@@ -1,0 +1,396 @@
+<?php
+/**
+ * Rameera_Email
+ *
+ * @category  Rameera
+ * @package   Rameera\Email
+ * @author    Rameera <arjundhiman90@gmail.com>
+ * @copyright 2024 Rameera
+ * @license   MIT
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var $block \Magento\Sales\Block\Order\Email\Items\DefaultItems */
+
+/** @var $_item \Magento\Sales\Model\Order\Item */
+$_item = $block->getItem();
+$_order = $_item->getOrder();
+
+/** @var \Rameera\Email\ViewModel\ProductImage $productImageViewModel */
+$productImageViewModel = $block->getData('product_image_view_model');
+$productImage = $productImageViewModel->getImageUrl($_item, $_order->getStore());
+?>
+
+<table
+    cellpadding="0"
+    cellspacing="0"
+    class="es-content"
+    align="center"
+    >
+    <tbody>
+        <tr>
+        <td class="esd-stripe" align="center">
+            <table
+            bgcolor="#ffffff"
+            class="es-content-body"
+            align="center"
+            cellpadding="0"
+            cellspacing="0"
+            width="600"
+            >
+            <tbody>
+                <tr class="es-mobile-hidden">
+                <td
+                    class="esd-structure es-p10t es-p20r es-p20l esdev-adapt-off"
+                    align="left"
+                >
+                    <table
+                    width="560"
+                    cellpadding="0"
+                    cellspacing="0"
+                    class="esdev-mso-table"
+                    >
+                    <tbody>
+                        <tr>
+                        <td class="esdev-mso-td" valign="top">
+                            <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            align="left"
+                            class="es-left"
+                            >
+                            <tbody>
+                                <tr>
+                                <td
+                                    width="140"
+                                    class="esd-container-frame"
+                                    align="center"
+                                    valign="top"
+                                >
+                                    <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                    >
+                                    <tbody>
+                                        <tr>
+                                        <td
+                                            align="center"
+                                            class="esd-block-image"
+                                            style="font-size: 0px"
+                                        >
+                                            <a target="_blank"
+                                            ><img
+                                                class="adapt-img"
+                                                src="<?= $productImage ?>"
+                                                alt="<?= $block->escapeHtml($_item->getName()) ?>"
+                                                style="display: block"
+                                                width="93"
+                                            /></a>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        <td class="esdev-mso-td" valign="top">
+                            <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            class="es-left"
+                            align="left"
+                            >
+                            <tbody>
+                                <tr>
+                                <td
+                                    width="140"
+                                    align="left"
+                                    class="esd-container-frame"
+                                >
+                                    <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                    >
+                                    <tbody>
+                                        <tr>
+                                        <td
+                                            align="left"
+                                            class="esd-block-text"
+                                        >
+                                            <p style="color: #000000">
+                                            <?= $block->escapeHtml($_item->getName()) ?>
+                                            </p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td
+                                            align="left"
+                                            class="esd-block-text"
+                                        >
+                                            <p style="color: #838485">
+                                            <?= $block->escapeHtml($block->getSku($_item)) ?>
+                                            </p>
+                                        </td>
+                                        </tr>
+                                        <?php if ($block->getItemOptions()) : ?>
+                                            <?php foreach ($block->getItemOptions() as $option) : ?>
+                                            <tr>
+                                                <td
+                                                    align="left"
+                                                    class="esd-block-text"
+                                                >
+                                                    <p style="color: #000000">
+                                                    <strong><?= $block->escapeHtml($option['label']) ?></strong>:<?= /* @noEscape */  nl2br($block->escapeHtml($option['value'])) ?>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                    </table>
+                                </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        <td class="esdev-mso-td" valign="top">
+                            <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            class="es-left"
+                            align="left"
+                            >
+                            <tbody>
+                                <tr>
+                                <td
+                                    width="140"
+                                    align="left"
+                                    class="esd-container-frame"
+                                >
+                                    <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                    >
+                                    <tbody>
+                                        <tr>
+                                        <td
+                                            align="left"
+                                            class="esd-block-text es-p10l"
+                                        >
+                                            <p><?= (float) $_item->getQtyOrdered() ?></p>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        <td class="esdev-mso-td" valign="top">
+                            <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            class="es-right"
+                            align="right"
+                            >
+                            <tbody>
+                                <tr>
+                                <td
+                                    width="140"
+                                    align="left"
+                                    class="esd-container-frame"
+                                >
+                                    <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                    >
+                                    <tbody>
+                                        <tr>
+                                        <td
+                                            align="right"
+                                            class="esd-block-text es-p10r"
+                                        >
+                                            <p style="color: #000000">
+                                            <?= /* @noEscape */ $block->getItemPrice($_item) ?>
+                                            </p>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </td>
+                </tr>
+                <!--[if !mso]><!-- -->
+                <tr class="es-desk-hidden">
+                <td
+                    class="esd-structure esdev-adapt-off es-p10t es-p20r es-p30l"
+                    align="left"
+                >
+                    <table
+                    width="550"
+                    cellpadding="0"
+                    cellspacing="0"
+                    class="esdev-mso-table"
+                    >
+                    <tbody>
+                        <tr>
+                        <td class="esdev-mso-td" valign="top">
+                            <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            class="es-left"
+                            align="left"
+                            >
+                            <tbody>
+                                <tr>
+                                <td
+                                    width="280"
+                                    align="left"
+                                    class="esd-container-frame"
+                                >
+                                    <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                    >
+                                    <tbody>
+                                        <tr>
+                                        <td
+                                            align="left"
+                                            class="esd-block-text"
+                                        >
+                                            <p style="color: #000000">
+                                            <?= $block->escapeHtml($_item->getName()) ?>
+                                            </p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td
+                                            align="left"
+                                            class="esd-block-text"
+                                        >
+                                            <p style="color: #838485">
+                                            <?= $block->escapeHtml($block->getSku($_item)) ?>
+                                            </p>
+                                        </td>
+                                        </tr>
+                                        <?php if ($block->getItemOptions()) : ?>
+                                            <?php foreach ($block->getItemOptions() as $option) : ?>
+                                            <tr>
+                                                <td
+                                                    align="left"
+                                                    class="esd-block-text"
+                                                >
+                                                    <p style="color: #000000">
+                                                    <strong><?= $block->escapeHtml($option['label']) ?></strong>:<?= /* @noEscape */  nl2br($block->escapeHtml($option['value'])) ?>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                    </table>
+                                </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        <td class="esdev-mso-td" valign="top">
+                            <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            class="es-left"
+                            align="left"
+                            >
+                            <tbody>
+                                <tr>
+                                <td
+                                    width="140"
+                                    align="left"
+                                    class="esd-container-frame"
+                                >
+                                    <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                    >
+                                    <tbody>
+                                        <tr>
+                                        <td
+                                            align="left"
+                                            class="esd-block-text es-p10l"
+                                        >
+                                            <p><?= (float) $_item->getQtyOrdered() ?></p>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        <td class="esdev-mso-td" valign="top">
+                            <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            class="es-right"
+                            align="right"
+                            >
+                            <tbody>
+                                <tr>
+                                <td
+                                    width="140"
+                                    align="left"
+                                    class="esd-container-frame"
+                                >
+                                    <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                    >
+                                    <tbody>
+                                        <tr>
+                                        <td
+                                            align="right"
+                                            class="esd-block-text es-p10r"
+                                        >
+                                            <p style="color: #000000">
+                                            <?= /* @noEscape */ $block->getItemPrice($_item) ?>
+                                            </p>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </td>
+                </tr>
+                <!--<![endif]-->
+            </tbody>
+            </table>
+        </td>
+        </tr>
+    </tbody>
+</table>

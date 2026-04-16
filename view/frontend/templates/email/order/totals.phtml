@@ -1,0 +1,227 @@
+<?php
+/**
+ * Rameera_Email
+ *
+ * @category  Rameera
+ * @package   Rameera\Email
+ * @author    Rameera <arjundhiman90@gmail.com>
+ * @copyright 2024 Rameera
+ * @license   MIT
+ */
+
+/**
+ * @var $block \Magento\Sales\Block\Order\Totals
+ * @see \Magento\Sales\Block\Order\Totals
+ */
+?>
+
+<table
+    cellpadding="0"
+    cellspacing="0"
+    class="es-content"
+    align="center"
+>
+    <tbody>
+    <tr>
+        <td class="esd-stripe" align="center">
+        <table
+            bgcolor="#ffffff"
+            class="es-content-body"
+            align="center"
+            cellpadding="0"
+            cellspacing="0"
+            width="600"
+        >
+            <tbody>
+            <tr>
+                <td class="esd-structure" align="left">
+                <table
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="100%"
+                >
+                    <tbody>
+                    <tr>
+                        <td
+                        width="600"
+                        class="esd-container-frame"
+                        align="center"
+                        valign="top"
+                        >
+                        <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            width="100%"
+                        >
+                            <tbody>
+                            <tr>
+                                <td
+                                align="center"
+                                class="esd-block-spacer es-p10t es-p10b es-p20r es-p20l"
+                                style="font-size: 0"
+                                >
+                                <table
+                                    border="0"
+                                    width="100%"
+                                    height="100%"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                >
+                                    <tbody>
+                                    <tr>
+                                        <td
+                                        style="
+                                            border-bottom: 1px solid
+                                            #cccccc;
+                                            background: unset;
+                                            height: 1px;
+                                            width: 100%;
+                                            margin: 0px 0px 0px 0px;
+                                        "
+                                        ></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table
+    cellpadding="0"
+    cellspacing="0"
+    class="es-content"
+    align="center"
+>
+    <tbody>
+    <tr>
+        <td class="esd-stripe" align="center">
+        <table
+            bgcolor="#ffffff"
+            class="es-content-body"
+            align="center"
+            cellpadding="0"
+            cellspacing="0"
+            width="600"
+        >
+            <tbody>
+            <tr>
+                <td
+                class="esd-structure es-p20t es-p40b es-p20r es-p20l esdev-adapt-off"
+                align="left"
+                >
+                <table
+                    width="560"
+                    cellpadding="0"
+                    cellspacing="0"
+                    class="esdev-mso-table"
+                >
+                    <tbody>
+                    <tr>
+                        <td class="esdev-mso-td" valign="top">
+                        <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            class="es-left"
+                            align="left"
+                        >
+                            <tbody>
+                            <tr class="es-mobile-hidden">
+                                <td
+                                width="280"
+                                class="esd-container-frame"
+                                align="center"
+                                >
+                                <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                >
+                                    <tbody>
+                                    <tr>
+                                        <td
+                                        align="left"
+                                        class="esd-block-text"
+                                        >
+                                        <p><br /></p>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </td>
+                        <td class="esdev-mso-td" valign="top">
+                        <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            class="es-left"
+                            align="left"
+                        >
+                            <tbody>
+                            <tr>
+                                <td
+                                width="280"
+                                class="esd-container-frame"
+                                align="center"
+                                >
+                                <table
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                >
+                                    <tbody class="total-wrapper">
+                                    <?php foreach ($block->getTotals() as $_code => $_total) : ?>
+                                        <?php if ($_total->getBlockName()) : ?>
+                                            <?= $block->getChildHtml($_total->getBlockName(), false) ?>
+                                        <?php else :?>
+                                        <tr class="<?= $block->escapeHtmlAttr($_code) ?>">
+                                            <th <?= /* @noEscape */ $block->getLabelProperties() ?> scope="row">
+                                                <?php if ($_total->getStrong()) : ?>
+                                                    <strong><?= $block->escapeHtml($_total->getLabel()) ?></strong>
+                                                <?php else : ?>
+                                                    <?= $block->escapeHtml($_total->getLabel()) ?>
+                                                <?php endif ?>
+                                            </th>
+                                            <td <?= /* @noEscape */ $block->getValueProperties() ?> data-th="<?= $block->escapeHtmlAttr($_total->getLabel()) ?>">
+                                                <?php if ($_total->getStrong()) : ?>
+                                                    <strong><?= /* @noEscape */ $block->formatValue($_total) ?></strong>
+                                                <?php else : ?>
+                                                    <?= /* @noEscape */ $block->formatValue($_total) ?>
+                                                <?php endif?>
+                                            </td>
+                                        </tr>
+                                        <?php endif; ?>
+                                    <?php endforeach?>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </td>
+    </tr>
+    </tbody>
+</table>

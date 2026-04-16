@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Rameera_Email
+ *
+ * @category  Rameera
+ * @package   Rameera\Email
+ * @author    Rameera <arjundhiman90@gmail.com>
+ * @copyright 2024 Rameera
+ * @license   MIT
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Rameera_Email">
+        <sequence>
+            <module name="Magento_Email"/>
+            <module name="Magento_Customer"/>
+            <module name="Magento_Sales"/>
+        </sequence>
+    </module>
+</config>

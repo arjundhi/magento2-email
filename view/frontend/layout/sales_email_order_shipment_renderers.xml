@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Rameera_Email
+ *
+ * @category  Rameera
+ * @package   Rameera\Email
+ * @author    Rameera <arjundhiman90@gmail.com>
+ * @copyright 2024 Rameera
+ * @license   MIT
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sales.email.order.shipment.renderers.default" template="Rameera_Email::email/items/shipment/default.phtml">
+            <arguments>
+                <argument name="product_image_view_model" xsi:type="object">Rameera\Email\ViewModel\ProductImage</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>
