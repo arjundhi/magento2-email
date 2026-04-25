@@ -30,7 +30,7 @@
 "var order": "Order",
 "var order_id": "Order DB Id",
 "var shipment_id": "Shipment DB Id",
-"var hudson_order_created_at_formatted":"Order Created At (m/d/y)",
+"var rameera_order_created_at_formatted":"Order Created At (m/d/y)",
 } @-->
 
 {{template config_path="design/email/header_template"}}
@@ -424,7 +424,7 @@
                                                     color: #000000;
                                                 "
                                             >
-                                                {{var hudson_order_created_at_formatted}}
+                                                {{var rameera_order_created_at_formatted}}
                                             </p>
                                             </td>
                                         </tr>
@@ -818,7 +818,7 @@
                                                     color: #000000;
                                                 "
                                             >
-                                                {{var hudson_order_created_at_formatted}}
+                                                {{var rameera_order_created_at_formatted}}
                                             </p>
                                             </td>
                                         </tr>
@@ -1008,7 +1008,7 @@
                                         border-radius: 0px;
                                         "
                                         ><a
-                                        href="https://hudson-malta.clickpost.ai/my-order?orderid={{var order.increment_id}}"
+                                        href="https://rameera-malta.clickpost.ai/my-order?orderid={{var order.increment_id}}"
                                         class="es-button"
                                         target="_blank"
                                         style="

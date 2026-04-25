@@ -2,10 +2,10 @@
 /**
  * Rameera_Email
  *
- * @category  Rameera
+ * @category  MageMatch
  * @package   Rameera\Email
- * @author    Rameera <arjundhiman90@gmail.com>
- * @copyright 2024 Rameera
+ * @author    MageMatch <arjundhiman90@gmail.com>
+ * @copyright 2024 MageMatch
  * @license   MIT
  */
 
@@ -51,7 +51,7 @@ class OrderFormattedDate implements ObserverInterface
         $order = $transportObject->getData('order');
 
         $transportObject->setData(
-            'hudson_order_created_at_formatted',
+            'rameera_order_created_at_formatted',
             $this->timezone->date(new \DateTime((string)$order->getCreatedAt()))->format(self::DATE_FORMAT)
         );
 

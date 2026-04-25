@@ -1,12 +1,12 @@
 {
     "name": "arjundhi/magento2-email",
-    "description": "Rameera Email module — custom email templates and notifications for Magento 2",
+    "description": "MageMatch Email module — custom email templates and notifications for Magento 2",
     "type": "magento2-module",
     "license": "MIT",
     "authors": [
         {
-            "name": "Rameera",
-            "email": "developer@aiopsgroup.com"
+            "name": "MageMatch",
+            "email": "arjundhiman90@gmail.com"
         }
     ],
     "require": {

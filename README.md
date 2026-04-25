@@ -1,4 +1,4 @@
-# Rameera_Email
+# MageMatch_Email
 
 Magento 2 module providing custom email templates and notifications — overrides core transactional emails (account, password, order, shipment, newsletter) with branded templates, adds account-change and revamped-website-password notifications, and injects order formatted-date formatting into email variables.
 
@@ -25,7 +25,7 @@ Magento 2 module providing custom email templates and notifications — override
 
 ```bash
 composer require arjundhi/magento2-email
-bin/magento module:enable Rameera_Email
+bin/magento module:enable MageMatch_Email
 bin/magento setup:upgrade
 bin/magento cache:flush
 ```
